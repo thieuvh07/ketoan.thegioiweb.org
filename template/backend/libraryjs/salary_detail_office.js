@@ -1,0 +1,257 @@
+if($('.js_load_view').length){
+	check_permission('salary/backend/salary/detail_office')	
+}
+var urlModule = 'http://api.thegioiweb.org/v1.0/salary_detail_office'
+
+
+function render_html(param){
+	let html = ''
+	console.log(param)
+	render_office(param);
+	render_construction(param);
+	render_cash(param);
+}
+function render_cash(param){
+	let html = ''
+	let cash = param.cash
+	let total_input = 0;
+	let total_output = 0;
+	html = html+'<thead>';
+	html = html+'<thead>';
+		html = html+'<tr>';
+			html = html+'<th class="text-center">Tên</th>';
+			html = html+'<th class="text-center">Ngày tháng</th>';
+			html = html+'<th class="text-center" style="width:320px;">Diễn giải</th>';
+			html = html+'<th class="text-center" style="width:120px;">Thu</th>';
+			html = html+'<th class="text-center" style="width:120px;">Chi</th>';
+			html = html+'<th class="text-center">Ghi chú</th>';
+		html = html+'</tr>';
+	html = html+'</thead>';
+	html = html+'<tbody id="listData">';
+	if(cash.length){
+		cash.forEach(function(item, index, array) {	
+			html = html+'<tr class="gradeX choose">';
+				total_input = sum(total_input, convert_false_to(item.input, 0))
+				total_output = sum(total_output, convert_false_to(item.output, 0))
+				html = html+'<td class="text-center">'+item.fullname+'</td>';
+				html = html+'<td class="text-center">'+gettime(item.time, 'DD-MM-YYYY')+'</td>';
+				html = html+'<td class="text-center">'+item.title+'</td>';
+				html = html+'<td class="text-right">'+addCommas(convert_false_to(item.input, 0))+'</td>';
+				html = html+'<td class="text-right">'+addCommas(convert_false_to(item.output, 0))+'</td>';
+				html = html+'<td class="text-center">'+item.note+'</td>';
+			html = html+'</tr>';
+
+		})
+	}else{
+		html = html+'<tr class="gradeX choose">';
+			html = html+'<td class="text-danger" colspan="100" >Không có dữ liệu phù hợp</td>';
+		html = html+'</tr>';
+	}
+		
+		html = html+'<tr>';
+			html = html+'<td class="text-right" colspan="3">Tổng</td>';
+			html = html+'<td class="text-right"><b>'+addCommas(total_input)+'</b></td>';
+			html = html+'<td class="text-right"><b>'+addCommas(total_output)+'</b></td>';
+		html = html+'</tr>';
+		html = html+'<tr>';
+			html = html+'<td class="text-right" colspan="2"><b>Tổng cuối</b></td>';
+			html = html+'<td class="text-right" colspan="2"><b>'+addCommas(sub(total_input, total_output))+'</b></td>';
+		html = html+'</tr>';
+	html = html+'</tbody>';
+	$('.js_content_cash').html(html)
+
+}
+function render_construction(param){
+	let html = ''
+	let construction = param.construction
+	console.log(construction)
+	html = html+'<thead>';
+		html = html+'<tr style="background:#eee;">';
+			html = html+'<td class="text-center" style="width:86px;">Ngày</td>';
+			html = html+'<td class="text-center" style="width:180px;">Tên CT</td>';
+			html = html+'';
+			html = html+'<td class="text-center" style="width:180px;">Diễn giải</td>';
+			
+			html = html+'<td class="text-center" style="width:60px;">Tổng thu</td>';
+			html = html+'<td class="text-center" style="width:60px;">Doanh số</td>';
+			html = html+'<td class="text-center" style="width:60px;">Lợi nhuận</td>';
+			html = html+'<td class="text-center" style="width:60px;">Loại KD</td>';
+			html = html+'<td class="text-center" style="width:60px;">Ghi chú</td>';
+		html = html+'</tr>';
+	html = html+'</thead>';
+	html = html+'<tbody id="listData">';
+
+	let sales_real_all = 0;
+	let gross_revenue_real_all = 0;
+	let profit_real_all = 0;
+	if(construction.length){
+		construction.forEach(function(item, index, array) {
+			html = html+'<tr class="gradeX choose">';
+				sales_real_all = sum(sales_real_all, item.sales_real)
+				gross_revenue_real_all = sum(gross_revenue_real_all, item.gross_revenue_real)
+				profit_real_all = sum(profit_real_all, item.profit_real)
+				html = html+'<td class="text-center">'+gettime(item.date_start, 'DD-MM-YYYY')+'</td>';
+				html = html+'<td class="text-center">'+item.fullname+' '+item.phone+'</td>';
+				html = html+'<td class="text-center">'+item.detail+'</td>';
+				html = html+'<td class="text-right">'+addCommas(convert_false_to(item.sales_real, 0))+'</td>';
+				html = html+'<td class="text-right">'+addCommas(convert_false_to(item.gross_revenue_real, 0))+'</td>';
+				html = html+'<td class="text-right">'+addCommas(convert_false_to(item.profit_real, 0))+'</td>';
+				html = html+'<td class="text-right">'+item.type_business+'</td>';
+				
+				html = html+'<td class="text-center">'+item.note+'</td>';
+			html = html+'</tr>';
+		})
+	}else{
+		html = html+'<tr class="gradeX choose">';
+			html = html+'<td class="text-danger"  colspan="100">Không có dữ liệu phù hợp</td>';
+		html = html+'</tr>';
+	}
+		html = html+'<tr>';
+			html = html+'<td colspan="3" class="text-center"><b>Tổng</b></td>';
+
+			html = html+'<td class="text-right"><b>'+addCommas(convert_false_to(sales_real_all, 0))+'</b></td>';
+			html = html+'<td class="text-right"><b>'+addCommas(convert_false_to(gross_revenue_real_all, 0))+'</b></td>';
+			html = html+'<td class="text-right"><b>'+addCommas(convert_false_to(profit_real_all, 0))+'</b></td>';
+			
+			html = html+'<td colspan="3" class="text-center"></td>';
+		html = html+'</tr>';
+	html = html+'</tbody>';
+	$('.js_content_construction').html(html)
+}
+
+function render_office(param){
+	let html = ''
+	let office = param.office
+	html = html+'<table class="table-salary table table-striped table-bordered table-hover dataTables-example" id="table_cash" >';
+		html = html+'<thead>';
+			html = html+'<tr>';
+				html = html+'<th style="" class="text-center"></th>';
+				html = html+'<th style="width:130px" class="text-center">Tên</th>';
+				
+					html = html+'<th style="width:130px" class="text-center">Tổng lợi nhuận từ KDCT</th>';
+					html = html+'<th style="width:130px" class="text-center">Tổng lợi nhuận từ KDVP</th>';
+					html = html+'<th style="width:130px" class="text-center">Chiết khấu % CT</th>';
+					html = html+'<th style="width:130px" class="text-center">Chiết khấu % VP</th>';
+					html = html+'<th style="width:130px" class="text-center">KDCT</th>';
+					html = html+'<th style="width:130px" class="text-center">KDVP</th>';
+					html = html+'<th style="width:130px" class="text-center">Lương thực</th>';
+				
+				html = html+'<th style="width:130px" class="text-center">Lương ứng</th>';
+				html = html+'<th style="width:130px" class="text-center">Thưởng</th>';
+				html = html+'<th style="width:130px" class="text-center">Phạt</th>';
+				html = html+'<th style="width:130px" class="text-center">Lương còn</th>';
+			html = html+'</tr>';
+		html = html+'</thead>';
+		html = html+'<tbody>';
+			if(office.length){
+				office.forEach(function(item, index, array) {
+					index = sum(index, 1)
+					html = html+'<tr>';
+						let periodicid = $('select[name=periodicid]').val()
+						
+						if(index == 1){
+							html = html+'<td rowspan =100 >Thiết kế</td>';
+						}
+						
+						
+							html = html+'<td class="text-center">';
+								html = html+'<a href="salary/backend/salary/detail_office?periodicid='+periodicid+'&id='+item.id+'" onclick="js_open_windown(this); return false">';
+									html = html+item.fullname
+								html = html+'</a>';
+								html = html+'<input class="hidden" type="text" name="user[id][]" value="'+item.id+'"/>'
+							html = html+'</td>';
+							html = html+'<td class="text-right">'+addCommas(convert_false_to(item['profitCT'], 0))+'</td>';
+							html = html+'<td class="text-right">'+addCommas(convert_false_to(item['profitVP'], 0))+'</td>';
+							html = html+'<td class="text-right">'+addCommas(convert_false_to(item['percentCT'],0))+'</td>';
+							html = html+'<td class="text-right">'+addCommas(convert_false_to(item['percentVP'],0))+'</td>';
+							html = html+'<td class="text-right">'+addCommas(convert_false_to(item['salaryCT'],0))+'</td>';
+							html = html+'<td class="text-right">'+addCommas(convert_false_to(item['salaryVP'],0))+'</td>';
+							html = html+'<td>';
+								html = html+'<input type="text" name="user[salary][]" value="'+addCommas(convert_false_to(item['salary'],0))+'" class="form-control input-sm int text-right" placeholder=""  autocomplete="off" />'
+							html = html+'</td>';
+
+						
+						html = html+'<td>';
+							html = html+'<input type="text" name="user[ung_luong][]" value="'+addCommas(convert_false_to(item.ung_luong, 0))+'" class="form-control input-sm int text-right" placeholder="" readonly  autocomplete="off" />'
+						html = html+'</td>';
+
+						html = html+'<td>';
+							html = html+'<input type="text" name="user[bonus][]" value="'+convert_false_to(item.bonus, 0)+'" class="form-control input-sm int text-right" placeholder="" autocomplete="off" />'
+						html = html+'</td>';
+
+						html = html+'<td>';
+							html = html+'<input type="text" name="user[fine][]" value="'+convert_false_to(item.fine, 0)+'" class="form-control input-sm int text-right" placeholder="" autocomplete="off" />'
+						html = html+'</td>';
+
+						html = html+'<td>'+addCommas(convert_false_to(item.totalSalary, 0))+'</td>';
+					html = html+'</tr>';
+				})
+			}
+		html = html+'</tbody>';
+	html = html+'</table>';
+	$('.js_content').html(html)
+}
+
+
+$(document).ready(function(){
+	
+	// load trang bằng url
+	if($('.js_load_view').length){
+		let _this = $('.js_load_view')
+		// lấy dữ liệu url
+		let obj = get_obj_in_form();
+		let page = get_page_in_url();
+		let parse = parseURLParams(window.location.href);
+		$.each(parse, function(index, value) {
+		    obj[index] = value[0];
+		});
+		obj.page = page;
+		// đẩy dữ liệu lên url
+		pathname = convert_obj_to_pathname(obj)
+		// console.log(pathname);
+		get_list_object(pathname);
+	}
+
+	// load trang khi tìm kiếm (search)
+	$(document).on('change','select[name=periodicid]', function(){
+		console.log(1)
+		// lấy dữ liệu ở form
+		let obj = get_obj_in_form()
+		// đẩy dữ liệu lên url
+		pathname = convert_obj_to_pathname(obj)
+		// thực hiện search thông qua url
+		get_list_object(pathname);
+	});
+
+});
+
+function get_list_object(pathname = ''){
+	add_loading_view($('.js_content'));
+	if(pathname.indexOf("&query") > 0){
+		pathname = pathname.replace("&query=", "&query=trash=0,");
+	}else{
+		pathname = pathname+'&query=trash=0,'
+	}
+	let periodicid = $('select[name=periodicid]').val()
+	$.ajax({
+		type: 'GET', 
+		url: urlModule+'/view?&periodicid='+periodicid+'&'+pathname,
+		crossDomain:true,
+		cache: false,
+		success: function(resultApi){
+
+			let json = JSON.parse(resultApi);
+			if(json.result == true){
+				render_html(json.data.list)
+			}
+			del_loading_view($('.js_content'))
+
+		},
+		error: function(resultApi){
+			let json = JSON.parse(resultApi);
+			toastr.error(json.message)
+			del_loading_view($('.js_content'))
+		}
+	});
+}
+

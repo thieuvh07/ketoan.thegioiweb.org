@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+		<title>Châm công</title>
+		<item>
+			<param>salary/backend/timekeeping/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>salary/backend/timekeeping/update</param>
+			<description>Sửa</description>
+		</item>
+
+	</permissions>
+	<permissions>
+		<title>Lương nhân viên</title>
+		<item>
+			<param>salary/backend/salary/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>salary/backend/salary/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>salary/backend/salary/view_worker</param>
+			<description>Chi tiết lương nhóm thợ</description>
+		</item>
+		<item>
+			<param>salary/backend/salary/detail_worker</param>
+			<description>Chi tiết lương từng thợ</description>
+		</item>
+		<item>
+			<param>salary/backend/salary/detail_office</param>
+			<description>Chi tiết lương NVVP</description>
+		</item>
+		
+	</permissions>
+	<permissions>
+		<title>BCTH</title>
+		<item>
+			<param>salary/backend/salary/BCTH</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>123</param>
+			<description>123</description>
+		</item>
+	</permissions>
+</module>

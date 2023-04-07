@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+		
+	</permissions>
+	<permissions>
+		<title>Nhà cung cấp</title>
+		<item>
+			<param>supplier/backend/supplier/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>supplier/backend/supplier/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>supplier/backend/supplier/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>supplier/backend/supplier/delete</param>
+			<description>Xóa</description>
+		</item>
+		<item>
+			<param>supplier/backend/supplier/detail</param>
+			<description>Xem chi tiết</description>
+		</item>
+	</permissions>
+</module>

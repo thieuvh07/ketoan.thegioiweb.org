@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+	</permissions>
+	<permissions>
+		<title>Kì tính</title>
+		<item>
+			<param>periodic/backend/periodic/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>periodic/backend/periodic/create</param>
+			<description>Thêm</description>
+		</item>
+	</permissions>
+</module>

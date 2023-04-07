@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+		
+	</permissions>
+	<permissions>
+		<title>Kế toán văn phòng</title>
+		<item>
+			<param>accountant/backend/accountant/viewAll</param>
+			<description>Xem tất cả</description>
+		</item>
+		<item>
+			<param>accountant/backend/accountant/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>accountant/backend/accountant/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>accountant/backend/accountant/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>accountant/backend/accountant/delete</param>
+			<description>Xóa</description>
+		</item>
+	</permissions>
+</module>

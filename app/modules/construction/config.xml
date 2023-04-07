@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+		<title>Nhóm Công trình</title>
+		<item>
+			<param>construction/backend/catalogue/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>construction/backend/catalogue/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>construction/backend/catalogue/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>construction/backend/catalogue/delete</param>
+			<description>Xóa</description>
+		</item>
+	</permissions>
+	<permissions>
+		<title>Công trình</title>
+		<item>
+			<param>construction/backend/construction/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>construction/backend/construction/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>construction/backend/construction/update</param>
+			<description>Sửa</description>
+		</item>
+	</permissions>
+	<permissions>
+		<title>Xuất hàng</title>
+		<item>
+			<param>construction/backend/export/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>construction/backend/export/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>construction/backend/export/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>construction/backend/export/delete</param>
+			<description>Xóa</description>
+		</item>
+	</permissions>
+</module>

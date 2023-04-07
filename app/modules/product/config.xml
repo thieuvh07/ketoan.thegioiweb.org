@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+		<title>Nhóm sản phẩm</title>
+		<item>
+			<param>product/backend/catalogue/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>product/backend/catalogue/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>product/backend/catalogue/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>product/backend/catalogue/delete</param>
+			<description>Xóa</description>
+		</item>
+	</permissions>
+	<permissions>
+		<title>Sản phẩm</title>
+		<item>
+			<param>product/backend/product/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>product/backend/product/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>product/backend/product/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>product/backend/product/delete</param>
+			<description>Xóa</description>
+		</item>
+		<item>
+			<param>product/backend/product/create_multi</param>
+			<description>Thêm nhiều</description>
+		</item>
+	</permissions>
+	<permissions>
+		<title>Sản phẩm trong kì</title>
+		<item>
+			<param>product/backend/month/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>123</param>
+			<description>1</description>
+		</item>
+		
+	</permissions>
+</module>

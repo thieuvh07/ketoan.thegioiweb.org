@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+	</permissions>
+	<permissions>
+		<title>Trả hàng</title>
+		<item>
+			<param>repay/backend/repay/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>repay/backend/repay/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>repay/backend/repay/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>repay/backend/repay/delete</param>
+			<description>Xóa</description>
+		</item>
+	</permissions>
+</module>

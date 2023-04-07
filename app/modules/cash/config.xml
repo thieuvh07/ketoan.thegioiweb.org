@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+		<title>Nhóm Tiền mặt</title>
+		<item>
+			<param>cash/backend/catalogue/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>cash/backend/catalogue/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>cash/backend/catalogue/update</param>
+			<description>Sửa</description>
+		</item>
+	</permissions>
+	<permissions>
+		<title>Tiền mặt</title>
+		<item>
+			<param>cash/backend/cash/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>cash/backend/detail/view</param>
+			<description>Xem chi tiết</description>
+		</item>
+		<item>
+			<param>cash/backend/detail/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>cash/backend/detail/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>cash/backend/detail/delete</param>
+			<description>Xóa</description>
+		</item>
+	</permissions>
+	
+	<permissions>
+		<title>Thu chi mặc định</title>
+		<item>
+			<param>cash/backend/common/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>cash/backend/common/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>cash/backend/common/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>cash/backend/common/delete</param>
+			<description>Xóa</description>
+		</item>
+	</permissions>
+</module>

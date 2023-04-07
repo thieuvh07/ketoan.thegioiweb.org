@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+		<title>Thống kê</title>
+		<item>
+			<param>dashboard/home/statistical</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>123</param>
+			<description>123</description>
+		</item>
+		
+	</permissions>
+	<permissions>
+	</permissions>
+</module>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+	</permissions>
+	<permissions>
+		<title>Đơn nhập</title>
+		<item>
+			<param>import/backend/import/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>import/backend/import/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>import/backend/import/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>import/backend/import/delete</param>
+			<description>Xóa</description>
+		</item>
+	</permissions>
+</module>
