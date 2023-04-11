@@ -1,5 +1,7 @@
 var module = 'user'
-var linkApi = 'http://api.thegioiweb.org/v1.0/'
+const linkApi = "http://api.thegioiweb.org/v1.0/"
+var urlModule = linkApi + "accountant" 
+
 if($('.js_load_view').length){
 	check_permission('accountant/backend/accountant/view')	
 }
@@ -294,7 +296,6 @@ function render_html_worker(param){
 
 
 
-var urlModule = linkapi + 'accountant'
 var fields = ''
 
 
